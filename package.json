@@ -1,0 +1,22 @@
+{
+  "name": "vue-xue",
+  "version": "1.0.0",
+  "description": "component for\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[CUI component for vue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangxuelian/vue-xue.git"
+  },
+  "keywords": [
+    "vue"
+  ],
+  "author": "zhangxuelian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhangxuelian/vue-xue/issues"
+  },
+  "homepage": "https://github.com/zhangxuelian/vue-xue#readme"
+}
