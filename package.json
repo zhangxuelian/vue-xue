@@ -1,6 +1,6 @@
 {
   "name": "@xeui/vue-xue",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "components for vue",
   "main": "src/index.js",
   "scripts": {
