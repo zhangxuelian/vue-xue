@@ -17,6 +17,40 @@ export default {
         })
     },
     softKeyboard: function () {
-        exec('osk.exe');
+        this.findExe('osk.exe', function (ret) {
+            if (ret.type !== "getProcess") {
+                exec('osk.exe');
+            }
+        });
+    },
+    findExe: function (name, cb) {
+        let cmd = process.platform === 'win32' ? 'tasklist' : 'ps aux'
+        exec(cmd, function (err, stdout, stderr) {
+            var ret = {};
+            if (err) {
+                ret = {
+                    type: "error",
+                    data: err
+                };
+            }
+            stdout.split('\n').filter((line) => {
+                let processMessage = line.trim().split(/\s+/);
+                //processMessage[0]进程名称 ， processMessage[1]进程id
+                let processName = processMessage[0];
+                if (processName === name) {
+                    ret = {
+                        type: "getProcess",
+                        data: processMessage[1]
+                    };
+                }
+            });
+            if (!ret.type) {
+                ret = {
+                    type: "noProcess",
+                    data: null
+                }
+            }
+            cb(ret);
+        })
     }
 }

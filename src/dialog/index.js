@@ -1,24 +1,17 @@
 import Vue from 'vue';
 import dialog from './dialog';
 
-let newInstance = null;
-
-//将vue组件变为构造函数
-let ConfirmConstructor = Vue.extend(dialog);
-
-let init = (options) => {
+let caller = (options) => {
+    //options 为调用组件方法时传入的配置选项
+    //将vue组件变为构造函数
+    let ConfirmConstructor = Vue.extend(dialog);
     //实例化组件
-    newInstance = new ConfirmConstructor();
+    let newInstance = new ConfirmConstructor();
     //合并配置选项
     Object.assign(newInstance, options);
     //使用$mount()后  可以理解为创建虚拟的dom
     document.body.appendChild(newInstance.$mount().$el);
-}
-let caller = (options) => {
-    //options 为调用组件方法时传入的配置选项
-    if (!newInstance) {
-        init(options);
-    }
+
     return newInstance.show(vm => { newInstance = null });
 }
 export default caller;

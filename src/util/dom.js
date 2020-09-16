@@ -5,7 +5,7 @@ export default {
         }
         var parents = [];
         var p = el.parentNode;
-        while (p !== parentSelector) {
+        while (p && p !== parentSelector) {
             var o = p;
             parents.push(o);
             p = o.parentNode;

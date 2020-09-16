@@ -32,8 +32,8 @@ export default {
         "9",
         "X",
         "0",
-        "del"
-      ]
+        "del",
+      ],
     };
   },
   filters: {},
@@ -73,13 +73,13 @@ export default {
       } catch (err) {
         return arr;
       }
-    }
+    },
   },
   methods: {
     selectKey(text) {
       this.$emit("selectKey", text);
-    }
-  }
+    },
+  },
 };
 </script>
 

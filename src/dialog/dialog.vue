@@ -1,9 +1,9 @@
 <template>
   <div class="x-dialog-wrap">
-    <div class="x-dialog-container" :class="wrapClass" v-drag="drag">
+    <div class="x-dialog-container layer-anim layer-anim-00" :class="wrapClass" v-drag="drag">
       <div class="x-dialog-header" v-show="showHeader" id="dragElement">
         <span class="x-dialog-title">{{title}}</span>
-        <i class="x-dialog-close" @click="close('close')" id="ignoreDrag">X</i>
+        <i class="x-dialog-close" @click="close('close')" id="ignoreDrag" v-show="showHeaderClose"></i>
       </div>
       <div class="x-dialog-content" :class="contentClass">
         <component
@@ -31,7 +31,7 @@ export default {
       title: "标题",
       drag: {
         enabled: true,
-        boundary: true
+        boundary: true,
       },
       content: "",
       contentClass: "",
@@ -39,10 +39,11 @@ export default {
       component: null,
       componentParams: {},
       showHeader: true,
+      showHeaderClose: true,
       showFooter: true,
       confirmText: "确定",
       cancelText: "取消",
-      returnData: null
+      returnData: null,
     };
   },
   directives: {
@@ -109,13 +110,13 @@ export default {
           document.removeEventListener("mousemove", mousemove);
         }
       }
-    }
+    },
   },
   methods: {
     show(cb) {
       var self = this;
       typeof cb === "function" && cb.call(this, this);
-      this.on = new Promise(resolve => {
+      this.on = new Promise((resolve) => {
         self.resolve = resolve;
       });
       return this;
@@ -123,7 +124,7 @@ export default {
     close(type) {
       var ret = this.resolve({
         type: type,
-        data: this.returnData
+        data: this.returnData,
       });
       if (typeof ret == "undefined" || ret == true) {
         this.hide();
@@ -135,8 +136,8 @@ export default {
     },
     getReturn(data) {
       this.returnData = data;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -151,13 +152,32 @@ export default {
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 10000;
+  z-index: 2000;
 }
 .x-dialog-container {
   background: #fff;
   box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   min-width: 300px;
+}
+.layer-anim {
+  animation-fill-mode: both;
+  animation-duration: 0.3s;
+}
+@keyframes layer-bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.layer-anim-00 {
+  animation-name: layer-bounceIn;
 }
 .x-dialog-header {
   height: 45px;
@@ -172,14 +192,19 @@ export default {
   display: block;
 }
 .x-dialog-close {
-  font-style: normal;
   position: absolute;
   right: 0;
   top: 0;
   width: 45px;
+  height: 45px;
   line-height: 45px;
   text-align: center;
   cursor: pointer;
+  background-position: center center;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAwklEQVRYR+2V0Q2AIAxEK5PpELoCYSLCCjqETkYMiSaEqFz7IZrUX9ve8zhsR42frrE+KYA6oA5ADnjve+fcxrmyaE8VIA0yxqxEtFhrJwQihDAT0RhjHGrgVYAkeA5EIDi1aTYEgEJwxVkANQiJOBvgDkIqLgIoIY5Qjkg+rgIMZ6Bszr46vYJvSDnnnwD5mb9+BFeBey2ET0JSCDgDiABSIwohZzCnFvoPfGIZoas1txftgTOArGFJjQKoA+pAcwd26uiQIdRekm8AAAAASUVORK5CYII=);
+}
+.x-dialog-close:hover {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAxElEQVRYR+2VUQqDMBBEJ/Ri8RD2AEJPVfAA9RDmYqIESglBzewKSYXNr5ud52SSdWi8XGN9GIA5YA5QDvj36sPLBcmVZfcUAWIjPDADmMLgngyEH9cPgB4LuhJ4ESAK/hoSEJLa2JsCYCGk4iKAEoRGXAxwBKEVVwHkEN9Q9pKQpkGmM5CnP/nr+Im+IXmfewKkZ179CPYCVy2EZ0JaCDoDjABTowqhpLGklnoH/mMYtRzHzPi9UkOH8IrI2V4DMAfMgQ03F4whxalSiAAAAABJRU5ErkJggg==);
 }
 .x-dialog-content {
 }
