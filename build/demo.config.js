@@ -3,17 +3,17 @@
 const path = require('path');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-let baseConfig = {
+let demoConfig = {
     devtool: process.env.NODE_ENV == 'production' ? '' : 'cheap-module-eval-source-map',
     entry: {
-        index: path.join(__dirname, '../src/index.js')
+        index: path.join(__dirname, '../example/main.js')
     },
     output: {
         filename: '[name].js',
-        path: path.join(__dirname, '../dist'),
-        publicPath: './',
-        libraryTarget: 'commonjs2'
+        path: path.join(__dirname, '../demo'),
+        publicPath: './'
     },
     module: {
         rules: [
@@ -60,7 +60,11 @@ let baseConfig = {
     plugins: [
         new VueLoaderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
+        new webpack.NoEmitOnErrorsPlugin(),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: path.resolve(__dirname, '../example/index.html')
+        })
     ],
     resolve: {
         alias: {
@@ -73,4 +77,4 @@ let baseConfig = {
     target: 'web'
 }
 
-module.exports = baseConfig;
+module.exports = demoConfig;

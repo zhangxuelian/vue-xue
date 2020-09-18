@@ -1,10 +1,10 @@
 'use strict';
 
 const webpack = require('webpack');
-const baseConfig = require('./base.config');
+const buildConfig = require('./build.config');
 
-baseConfig.mode = 'development';
-webpack(baseConfig, (err, stats) => {
+buildConfig.mode = 'production';
+webpack(buildConfig, (err, stats) => {
     if (err) {
         console.error(err.stack || err);
     } else if (stats.hasErrors()) {

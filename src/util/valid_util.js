@@ -4,8 +4,11 @@ const areaID = {
     46: "海南", 50: "重庆", 51: "四川", 52: "贵州", 53: "云南", 54: "西藏", 61: "陕西", 62: "甘肃", 63: "青海", 64: "宁夏", 65: "新疆",
     71: "台湾", 81: "香港", 82: "澳门", 91: "国外"
 }
-
 export default {
+    /**
+     * 性别ID
+     */
+    sexMap: { 0: "女", 1: "男" },
     /**
      * 校验身份证
      */
@@ -69,31 +72,6 @@ export default {
             age: self.getAgeByIdCard(idCard)
         };
     },
-
-    /**
-     * 校验手机号码
-     *
-     * @param {Number} num
-     * @returns
-     */
-    checkPhoneNum: function (num) {
-        let pattern = /^1[0-9]\d{9}$/;
-        if (pattern.test(num)) {
-            return {
-                status: true,
-                message: '校验成功'
-            }
-        } else {
-            return {
-                status: false,
-                message: '手机号码不合法'
-            }
-        }
-    },
-    /**
-     * 性别ID
-     */
-    sexMap: { 0: "女", 1: "男" },
     /**
      * 根据身份证号获取性别
      */
@@ -148,147 +126,23 @@ export default {
         }
     },
     /**
-     * 身份证出生日期*号处理
-     * 
-     * @param {String} idCard 身份证号
-     */
-    handleBirthdayByIdCard(idCard){
-        var handleIdCard = '';
-        if (15 == idCard.length) {
-            handleIdCard = idCard.substring(0,6) + '******' + idCard.substring(12);
-
-        } else if (18 == idCard.length) {
-            handleIdCard =  idCard.substring(0,6) + '********' + idCard.substring(14);
-        }
-        return handleIdCard;
-    },
-    /**
-     * 从数组中查找对象值，返回下标（同用于判断数组中是否存在某对象）
-     * ps：数组对象为json
-     * @param {any} arr
-     * @param {any} key
-     * @param {any} value
-     * @returns
-     */
-    eleInArr: function (arr, key, value) {
-        try {
-            for (var i = 0; i < arr.length; i++) {
-                if (arr[i][key] == value) {
-                    return i;
-                }
-            }
-            return -1;
-        } catch (e) {
-            return -1;
-        }
-    },
-    /**
-     * 从数组中查找对象值，返回数组
-     * ps：数组对象为数组
-     * @param {any} arr
-     * @param {any} key
-     * @param {any} valueArr
-     * @returns
-     */
-    eleInArrByKeys: function (arr, key, valueArr) {
-        var ret = [];
-        try {
-            for (var i = 0; i < arr.length; i++) {
-                for (var j in valueArr) {
-                    if (arr[i][key] == valueArr[j]) {
-                        ret.push(arr[i]);
-                        valueArr.splice(j, 1);
-                    }
-                }
-                if (valueArr.length == 0) {
-                    return ret;
-                }
-            }
-            return ret;
-        } catch (e) {
-            return ret;
-        }
-    },
-    /**
-     * 从数组中查找对象值，返回下标（同用于判断数组中是否存在某对象）
-     * ps:数组对象为string
-     * @param {any} arr
-     * @param {any} value
-     * @returns
-     */
-    valInArr: function (arr, value) {
-        for (var i = 0; i < arr.length; i++) {
-            if (arr[i] == value) {
-                return i;
-            }
-        }
-        return -1;
-    },
-    /**
-     * 数组去重,数组元素为string
+     * 校验手机号码
      *
-     * @param {any} arr
+     * @param {Number} num
      * @returns
      */
-    uniqueArr: function (arr) {
-        var res = [];
-        var json = {};
-        for (var i = 0; i < arr.length; i++) {
-            if (!json[arr[i]]) {
-                res.push(arr[i]);
-                json[arr[i]] = 1;
+    checkPhoneNum: function (num) {
+        let pattern = /^1[0-9]\d{9}$/;
+        if (pattern.test(num)) {
+            return {
+                status: true,
+                message: '校验成功'
             }
-        }
-        return res;
-    },
-    /**
-     * 数组去重,数组元素为json
-     *
-     * @param {any} arr
-     * @param {any} key
-     * @returns
-     */
-    uniqueArrJson: function (arr, key) {
-        var res = [];
-        var json = {};
-        arr.forEach(function (item, i) {
-            if (!json[item[key]]) {
-                res.push(item);
-                json[item[key]] = 1;
-            }
-        });
-        return res;
-    },
-    /**
-     * 比对版本号
-     * @param {String} lastVersion 上一个版本号
-     * @param {String} crrentVersion 当前版本号
-     * @returns {Boolean} 0: 当前=上个版本 1: 当前>上个版本 -1: 当前<上个版本
-     */
-    compareVersion(lastVersion, crrentVersion) {
-        if (lastVersion && crrentVersion) {
-            var lastArr = lastVersion.split(".");
-            var currentArr = crrentVersion.split(".");
-            for (let i = 0; i < currentArr.length; i++) {
-                if (currentArr[i] > lastArr[i]) {
-                    return 1;
-                }
-                if (currentArr[i] < lastArr[i]) {
-                    return -1;
-                }
-            }
-            return 0;
         } else {
-            return 0;
+            return {
+                status: false,
+                message: '手机号码不合法'
+            }
         }
-    },
-    /**
-     * 判断是否为函数
-     *
-     * @param {any} fn
-     * @returns {boolean}
-     */
-    isFunction(fn) {
-        return Object.prototype.toString.call(fn) === "[object Function]";
     }
 }
