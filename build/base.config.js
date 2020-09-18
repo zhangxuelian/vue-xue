@@ -12,7 +12,8 @@ let baseConfig = {
     output: {
         filename: '[name].js',
         path: path.join(__dirname, '../dist'),
-        publicPath: './'
+        publicPath: './',
+        libraryTarget: 'commonjs2'
     },
     module: {
         rules: [
