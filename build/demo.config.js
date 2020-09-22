@@ -4,6 +4,8 @@ const path = require('path');
 const webpack = require('webpack');
 const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const fs = require('fs');
+const directory = fs.readdirSync('./example/src/modules');
 
 let demoConfig = {
     devtool: process.env.NODE_ENV == 'production' ? '' : 'cheap-module-eval-source-map',
@@ -64,11 +66,14 @@ let demoConfig = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: path.resolve(__dirname, '../example/index.html')
+        }),
+        new webpack.DefinePlugin({
+            DIRECTORY: JSON.stringify(directory)
         })
     ],
     resolve: {
         alias: {
-            '@': path.join(__dirname, '../src'),
+            '@': path.join(__dirname, '../example/src'),
             '@root': path.resolve(__dirname, '..'),
             'vue$': 'vue/dist/vue.esm.js'
         },

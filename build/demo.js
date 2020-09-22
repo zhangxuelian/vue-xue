@@ -19,7 +19,7 @@ var server = new WebpackDevServer(compiler, {
     open: true,
     contentBase: path.join(__dirname, '../'),
     after() {
-        // doto
+        // todo
     }
 });
 server.listen(8787);
