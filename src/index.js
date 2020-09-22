@@ -2,7 +2,7 @@ import Vue from 'vue';
 
 // 工具库
 import dateUtil from './util/date_util';
-import deviceUtil from './util/device_util';
+/* import deviceUtil from './util/device_util'; */
 import domUtil from './util/dom_util';
 import validUtil from './util/valid_util';
 import dataUtil from './util/data_util';
@@ -42,9 +42,12 @@ export default {
         components.forEach(component => {
             Vue.component(component.name, component);
         });
-    },
+    }
+}
+
+export {
     dateUtil,
-    deviceUtil,
+    /* deviceUtil, */
     domUtil,
     validUtil,
     dataUtil

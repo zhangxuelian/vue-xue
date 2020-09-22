@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "node build/build.js",
-    "demo": "build && node build/demo.js"
+    "demo": "yarn build && node build/demo.js"
   },
   "repository": {
     "type": "git",

@@ -12,9 +12,11 @@
 </template>
 
 <script>
+import { dateUtil } from "xue";
 export default {
   methods: {
     dialog1() {
+      console.log(dateUtil);
       this.$xdialog({
         title: "弹窗标题",
         drag: {
