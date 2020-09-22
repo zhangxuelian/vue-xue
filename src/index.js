@@ -17,10 +17,22 @@ import keyboard from './keyboard';
 // 组件
 import numberKeyboard from './number_keyboard';
 import xswitch from './switch';
+import xcheckbox from './checkbox';
+import xRadio from './radio';
+import xSelect from './select';
+import xTree from './tree';
+import xTransfer from './transfer';
+import xInputNumber from './input_number';
 
 const components = [
     numberKeyboard,
-    xswitch
+    xswitch,
+    xcheckbox,
+    xRadio,
+    xSelect,
+    xTree,
+    xTransfer,
+    xInputNumber
 ];
 
 export default {

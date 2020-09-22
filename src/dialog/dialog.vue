@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import dom from "../util/dom";
+import dom from "../util/dom_util";
 export default {
   name: "xDialog",
   data() {
