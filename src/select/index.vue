@@ -63,6 +63,7 @@ import normalUtil from "../util/data_util";
 import xCheckbox from "../checkbox";
 import "../directive";
 export default {
+    name: 'x-select',
     props: ["selectConfig", "disabled", "selectClass"],
     components: { xCheckbox },
     data() {

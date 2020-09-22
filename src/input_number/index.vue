@@ -28,6 +28,7 @@
 <script>
 import normalUtil from "../util/data_util";
 export default {
+    name: 'x-input-number',
     props: {
         disabled: {
             type: Boolean,
