@@ -26,6 +26,7 @@
 import part from './part'
 import normalUtil from "../util/data_util";
 export default {
+    name: 'x-transfer',
     components:{
         part
     },

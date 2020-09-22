@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+    name: 'x-radio',
     model: {
         prop: "outValue", //  v-model的值传入 outValue
         event: "change",

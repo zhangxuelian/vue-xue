@@ -8,6 +8,7 @@
 </template>
 <script>
 export default {
+    name: 'x-checkbox',
     model: {
         prop: "outValue",
         event: "change",
