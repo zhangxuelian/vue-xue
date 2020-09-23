@@ -6,11 +6,7 @@
     </div>
 </template>
 <script>
-import xRadio from "../../../../src/radio";
 export default {
-    components:{
-        xRadio
-    },
     data(){
         return {
             radioValue: "",

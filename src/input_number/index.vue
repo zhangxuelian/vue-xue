@@ -110,7 +110,7 @@ export default {
             // var reg = /^-?(0|[1-9][0-9]*)*$/;
             var reg = /^(-?\d+)(\.\d+)?$/;
             if (reg.test(number)) {
-                if (this.number >= this.numberConf.max) {
+                if (number >= this.numberConf.max) {
                     this.number = this.numberConf.max;
                 } else if (number <= this.numberConf.min) {
                     this.number = this.numberConf.min;

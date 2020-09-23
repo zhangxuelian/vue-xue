@@ -1,7 +1,7 @@
 <template>
     <div class="x-tree-wrap" :class="{'tree-search': treeConf.search}">
         <div class="search-container" v-if="treeConf.search">
-            <input type="text" class="csh-ipt" v-model="searchText">
+            <input type="text" class="search-ipt" v-model="searchText" placeholder="输入关键字进行过滤">
         </div>
             <!-- <tree-node :nodeData="treeConf.data"></tree-node> -->
         <div class="x-tree-container" v-for="(item,$index) in treeConf.data" :key="$index">
@@ -251,6 +251,28 @@ export default {
     height: 100%;
     // color: #fff;
     overflow: auto;
+
+    .search-container{
+        margin-bottom: 10px;
+        .search-ipt{
+            padding: 0 10px;
+            border: 1px solid #dcdfe6;
+            box-sizing: border-box;
+            border-radius: 4px;
+            height: 30px;
+            color: #333;
+            font-size: inherit;
+            outline: 0;
+             &:hover {
+            border-color: #c0c4cc;
+            }
+            &:active,
+            &:focus {
+            border-color: #409eff;
+            }
+        }
+    }
+
     .x-tree-item {
         position: relative;
         padding-left: 20px;

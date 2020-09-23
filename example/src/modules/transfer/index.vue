@@ -4,11 +4,7 @@
     </div>
 </template>
 <script>
-import xTransfer from "../../../../src/transfer";
 export default {
-    components:{
-        xTransfer
-    },
     data(){
         return {
             transferConfig:{

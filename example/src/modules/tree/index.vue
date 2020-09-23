@@ -4,20 +4,20 @@
     </div>
 </template>
 <script>
-import xTree from "../../../../src/tree";
 export default {
-     components:{
-        xTree
-    },
     data(){
         return {
              treeConfig:{
+                 search:true,
                   data: [{
                         name:'test',
                         id:1,
                         children: [{
                             name:'child1-1',
                             id:11
+                        },{
+                            name:'child1-2',
+                            id:12
                         }]
                   },{
                       name: "test2",

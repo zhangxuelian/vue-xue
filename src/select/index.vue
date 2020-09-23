@@ -17,14 +17,13 @@
             :readonly="true"
             placeholder="请选择"
         />
-        <span class="input-icon">
-            <i @click="clear()" title="清空" class="icon delete-icon" v-show="showClose"></i>
-            <i
-                class="icon dropdown-icon"
-                :class="{'is-reverse': isReverse,'disabled':disabled}"
-                v-if="!showClose"
-            ></i>
-        </span>
+        <i @click="clear()" title="清空" class="icon delete-icon" v-show="showClose"></i>
+        <i
+            class="icon dropdown-icon"
+            :class="{'is-reverse': isReverse,'disabled':disabled}"
+            v-if="!showClose"
+        ></i>
+
         <transition :name="isPlacementTop ? 'el-zoom-in-bottom':'el-zoom-in-top'">
             <div class="x-select-content" :id="id" :style="contentStyle" v-show="isDropdown">
                 <div class="filter-wrap" v-if="selectConf.filter">
@@ -61,11 +60,32 @@
 import dom from "../util/dom_util";
 import normalUtil from "../util/data_util";
 import xCheckbox from "../checkbox";
-import "../directive";
 export default {
-    name: 'x-select',
+    name: "x-select",
     props: ["selectConfig", "disabled", "selectClass"],
     components: { xCheckbox },
+    directives: {
+        clickOutside: {
+            bind: function (el, binding, vnode) {
+                el.clickOutsideEvent = function (event) {
+                    // here I check that click was outside the el and his children
+                    if (!(el == event.target || el.contains(event.target))) {
+                        // and if it did, call method provided in attribute value
+                        if (binding.expression) {
+                            vnode.context[binding.expression](event);
+                        }
+                    }
+                };
+                document.body.addEventListener("click", el.clickOutsideEvent);
+            },
+            unbind: function (el) {
+                document.body.removeEventListener(
+                    "click",
+                    el.clickOutsideEvent
+                );
+            },
+        },
+    },
     data() {
         return {
             id: null,
@@ -166,7 +186,7 @@ export default {
                     this.selectConf.checkLimit ==
                     this.selectConf.checkRows.length
                 ) {
-                    console.log(
+                    console.warn(
                         "最多只能选" + this.selectConf.checkLimit + "个"
                     );
                     return;
