@@ -1,6 +1,6 @@
 <template>
-    <div class="radio-box">
-        <h3>基本用法</h3>
+    <div class="demo-wrap">
+        <h3>radio单选框</h3>
         <x-radio v-model="radioValue" value="male">男</x-radio>
         <x-radio v-model="radioValue" value="female">女</x-radio>
     </div>
@@ -14,8 +14,3 @@ export default {
     }
 }
 </script>
-<style lang="scss">
-.radio-box{
-    padding:15px;
-}
-</style>

@@ -1,16 +1,15 @@
 <template>
-    <div>
-        <div class="title">复选框</div>
+    <div class="demo-wrap">
+        <div class="title">checkbox复选框</div>
         <x-checkbox v-model="isCheck" value="香蕉">测试</x-checkbox>
     </div>
 </template>
 <script>
 export default {
-    data(){
+    data() {
         return {
-            isCheck: false
-        }
-    }
-    
-}
+            isCheck: false,
+        };
+    },
+};
 </script>

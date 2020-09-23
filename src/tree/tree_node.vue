@@ -2,20 +2,29 @@
     <div>
         <div class="x-tree-item" v-for="(item,$index) in nodeData" :key="$index">
             <div class="tree-content" v-if="!item.hideNode">
-                <i
-                    class="expand-icon"
-                    v-if="item[$treeRoot.treeConf.childName]"
-                    :class="{'is-open':item.isOpen,[$treeRoot.treeConf.iconClass]:true}"
-                    @click.self="expend(item)"
-                ></i>
+                <div class="expand-box" @click="expend(item)"  v-if="item[$treeRoot.treeConf.childName]" :class="{'expand-right':$treeRoot.treeConf.expendIconPosition ==='right'}">
+                    <i
+                        class="expand-icon"
+                        :class="{'is-open':item.isOpen}"
+                    ></i>
+                </div>
+
                 <x-checkbox
-                  v-if="$treeRoot.treeConf.checkbox"
-                  v-model="item.checked"
-                   :mixed="item.mixed"
-                   @click.native="clickCheckbox(item)"
+                    v-if="$treeRoot.treeConf.checkbox"
+                    v-model="item.checked"
+                    :mixed="item.mixed"
+                    @click.native="clickCheckbox(item)"
                     class="checkbox-box"
-                  ></x-checkbox>
-                <span class="node-name" @click="clickNode(item)">{{item[$treeRoot.treeConf.nodeName]}}</span>
+                ></x-checkbox>
+                <span class="node-icon" v-if="$treeRoot.treeConf.showIcon">
+                    <i v-if="item.iconClass" :class="{[item.iconClass]:true}"></i>
+                    <i v-if="!item.iconClass&&$treeRoot.treeConf.iconClass" :class="{ [$treeRoot.treeConf.iconClass]:true }"></i>
+                </span>
+                <span
+                    class="node-name"
+                    @click="clickNode(item)"
+                    :title="item[$treeRoot.treeConf.nodeName]"
+                >{{item[$treeRoot.treeConf.nodeName]}}</span>
             </div>
             <tree-node
                 :nodeData="item[$treeRoot.treeConf.childName]"
@@ -29,8 +38,8 @@ import xCheckbox from "../checkbox";
 export default {
     name: "treeNode",
     inject: ["$treeRoot"],
-    components:{
-        xCheckbox
+    components: {
+        xCheckbox,
     },
     props: {
         nodeData: {},
@@ -43,12 +52,12 @@ export default {
         expend(item) {
             this.$treeRoot.expend(item);
         },
-        clickCheckbox(item){
+        clickCheckbox(item) {
             this.$treeRoot.clickCheckbox(item);
         },
-        clickNode(node){
+        clickNode(node) {
             this.$treeRoot.clickNode(node);
-        }
+        },
     },
 };
 </script>

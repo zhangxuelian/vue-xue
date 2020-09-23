@@ -15,7 +15,7 @@
             :style="iptStyle"
             :disabled="disabled"
             :readonly="true"
-            placeholder="请选择"
+            :placeholder="selectConf.placeholderText"
         />
         <i @click="clear()" title="清空" class="icon delete-icon" v-show="showClose"></i>
         <i
@@ -114,6 +114,7 @@ export default {
                 checkRows: [], //选中数组Row
                 checkRowsMap: {},
                 setValue: "", //设置值
+                placeholderText: '请选择', // 自定义placeholder文案
                 onSelect: function () {},
                 clearAll: function () {},
                 textFieldFormat: function () {},
