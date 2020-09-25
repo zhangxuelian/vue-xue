@@ -4,8 +4,10 @@
   "description": "components for vue",
   "main": "dist/index.js",
   "scripts": {
-    "build": "node build/build.js",
-    "demo": "yarn build && node build/demo.js"
+    "dist:style": "gulp --gulpfile build/build.style.js",
+    "dist:dev": "node build/build.js",
+    "dist": "yarn dist:style && yarn dist:dev",
+    "demo": "yarn dist && node build/demo.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +30,11 @@
   "devDependencies": {
     "css-loader": "3.6.0",
     "file-loader": "^6.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
     "html-webpack-plugin": "^4.4.1",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.2",
@@ -37,5 +44,10 @@
     "vue-template-compiler": "^2.6.12",
     "webpack": "^4.44.1",
     "webpack-dev-server": "^3.11.0"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
