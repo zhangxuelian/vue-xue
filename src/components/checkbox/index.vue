@@ -8,7 +8,7 @@
 </template>
 <script>
 export default {
-    name: 'GxCheckbox',
+    name: 'x-checkbox',
     model: {
         prop: "outValue",
         event: "change",

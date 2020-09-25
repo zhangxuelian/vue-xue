@@ -1,14 +1,13 @@
 <template>
-    <div class="transfer-box">
-        <x-transfer :transfer-config="transferConfig"></x-transfer>
+     <div class="demo-wrap">
+         <div class="title">transfer穿梭框</div>
+         <div class="transfer-box">
+            <x-transfer :transfer-config="transferConfig"></x-transfer>
+         </div>
     </div>
 </template>
 <script>
-/* import xTransfer from "../../../../src/transfer"; */
 export default {
-    /* components:{
-        xTransfer
-    }, */
     data(){
         return {
             transferConfig:{
@@ -24,7 +23,7 @@ export default {
     }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .transfer-box{
     width:500px;
     height:300px;

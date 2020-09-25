@@ -32,24 +32,16 @@
     }
   }
 
-  .input-icon {
-    display: flex;
-    height: 100%;
-    width: 16px;
-    position: absolute;
-    right: 5px;
-    top: 0;
-    transition: all .3s;
-    cursor: pointer;
-    color: #333;
-    align-items: center;
-    justify-content: center;
-  }
-
   .icon {
     display: inline-block;
     width: 16px;
     height: 16px;
+    position: absolute;
+    right: 5px;
+    top: 7px;
+    transition: all .3s;
+    cursor: pointer;
+    color: #333;
 
     &.delete-icon {
       background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAEP0lEQVRYR82ZT2wUdRTHv2/KlNKIBTSVThuJQoJwEdPZprLxUON2TJDEeNADcDICkeANLhLE6EW9aSRAoxf/xHjwTyqJs0vswTSQnWnkYpAEMJhlttbQVjBQGHae+U272+7M7O5vZlvoHGfe773PvN/vvff7vR8hwXOMWXn2XCGlqC0DzOgF8BTAPcy0GsQlAt0AMA7gDyKMeW5p5Gx/j3WMyItrjuIMOD3qbFDb6E14vAdAV5yxAIpQ6At3ho/vSGtXZcdKAZqjlzqptf1dAK8DUGWV15BzAXzGd2+9Y6Q3TTTS1RDQzDu7AP6YiNY1UhbrO2OSgbeMPu2reuNqAto2q9dR/JQYb8QyHFOYCUOPoOuArpPwbOiJBBy2nfaVHr4DwYhpL5k4w7yj4JWdunYrqCAEeNK21Sc8bfi+wZWJGOafirNzn65XeTIEaOadU0RLO6213MzMQ0Zf996F36sARUAQ4cuIlXAD4HMgbAOjM9k8zo0iTIBxHqB+gB8OTSlhV0bXvi6/rwD6qURtvwBCVbQy42YLtWx7IfXYlZ9+vbpWbVN/JqAvCSQDeXfGffGl5zZMnbH+frLEpfNEWF2lS0S3q2wx0uv9FDQPaDknCNgXYTg7mNIqwZKzJzs8nsnGhRRwCt0ezOgb/y3byFqOCWAwaJOBk0ZK218BzNnO48y4FJmEGROqumrzwDNrp8uK4kJGwY38NrXGdW9fBEUuGZcImzK69pfvwaxV/ADgwzUXr//3bYMZfV3l72Uho+By9uUOj1fVnQUGf2Skug+TKPzb7WKhUW1NYijJmHknUTGjr+8hM39tOxGNyiz6OAbjyNZJO2nKWc7bDLwvAyhkZAzLyMjYI+CIAPyegZdlBswn/XBElteVkAlGq8yai7JPhB8oZzu/M2NrHMB6nhTfFqaSpHBzPBcoazlTANbEBawFuVBPk3BC1TRlraIL8IokgPUgFwEOzChR1nZmwFjZHGB1jhS6ZPNkPbs+YM5y/mHg0SSAs9EahktacSIYppsMkmB1udwRDpJktbsSJMnTTBhOlK/oNJMMksE/kpl3jhDhPdkpjprWYEBEJ+r4kH6ijl/qoj0X3H4tBiQzp4mZlZw9XgC47kFcxnPBWWiu5M1tFoRS07r2IYEO1SzaD3K7NZuzlvmGddaLy3jL7wOOjneS6j34QxMwya3KFuPpwKHJh1wGx05m7F7Yrwkf3G3n1FL3Y2oGI2HI0LXaB3cx0G99QBsG36e+zPwuWK71IeT95hHoWzDvkK0wTckRnb4DflWqeVQ2NDLCK9yHip8A8A/QS/icUP/rOjgwQPeibDRsYJ7Jj7/mwTsebIk0DSxaHB4fMPq7v6mnqyFgJQW1eovZAv6c7ypHy/2XpgHLCpZtEz34h/41xFghBa/leRB6CdgsriEgriHEQ3wToAIDF8EYg1L65WxvsmuI/wH2zN+MbVjgfAAAAABJRU5ErkJggg==") center no-repeat;
@@ -97,14 +89,14 @@
       box-sizing: border-box;
 
       .select-filter {
-        padding: 6px 12px;
+        padding: 0 12px;
         width: 100% !important;
         border: 1px solid #dcdfe6;
         box-sizing: border-box;
         border-radius: 4px;
         height: 30px;
         color: #333;
-        font-size: 0.16rem;
+        font-size: inherit;
         outline: 0;
 
         &:focus {
@@ -120,6 +112,7 @@
     height: 100% !important;
     box-sizing: border-box;
     padding: 0;
+    margin: 0;
 
     li {
       width: 100% !important;

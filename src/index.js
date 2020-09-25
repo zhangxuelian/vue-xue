@@ -16,8 +16,8 @@ import keyboard from './components/keyboard';
 
 // 组件
 import numberKeyboard from './components/number_keyboard';
-import xswitch from './components/switch';
-import xcheckbox from './components/checkbox';
+import xSwitch from './components/switch';
+import xCheckbox from './components/checkbox';
 import xRadio from './components/radio';
 import xSelect from './components/select';
 import xTree from './components/tree';
@@ -26,8 +26,8 @@ import xInputNumber from './components/input_number';
 
 const components = [
     numberKeyboard,
-    xswitch,
-    xcheckbox,
+    xSwitch,
+    xCheckbox,
     xRadio,
     xSelect,
     xTree,
@@ -40,7 +40,7 @@ export default {
         vue.prototype.$xdialog = dialog;
         vue.prototype.$xkeyboard = keyboard;
         components.forEach(component => {
-            Vue.component(component.name, component);
+            vue.component(component.name, component);
         });
     }
 }

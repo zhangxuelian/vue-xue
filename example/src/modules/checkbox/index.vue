@@ -1,17 +1,15 @@
 <template>
-    <div>
-        <gx-checkbox v-model="isCheck">测试</gx-checkbox>
+    <div class="demo-wrap">
+        <div class="title">checkbox复选框</div>
+        <x-checkbox v-model="isCheck" value="香蕉">测试</x-checkbox>
     </div>
 </template>
 <script>
-/* import xCheckbox from "../../../../src/checkbox" */
 export default {
-    /* components:{ xCheckbox }, */
-    data(){
+    data() {
         return {
-            isCheck: false
-        }
-    }
-    
-}
+            isCheck: false,
+        };
+    },
+};
 </script>

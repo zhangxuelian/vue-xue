@@ -3,14 +3,12 @@
     border-radius: 5px;
     padding: 10px;
 
+    .title {
+        line-height: 35px;
+        font-size: 18px;
+        font-weight: 700;
+    }
     .module-wrap {
-
-        .title {
-            line-height: 35px;
-            font-size: 18px;
-            font-weight: 700;
-        }
-
         .content {}
 
         .config {}
