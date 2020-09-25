@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import dom from '../util/dom_util';
+import dom from '@/util/dom_util';
 Vue.directive('xImg', {
     inserted: async function (el, binding) {
         let imgURL = binding.value.src;

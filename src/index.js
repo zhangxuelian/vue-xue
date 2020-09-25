@@ -11,18 +11,18 @@ import dataUtil from './util/data_util';
 import './directive';
 
 // 使用vue.use()可注入全局
-import dialog from './dialog';
-import keyboard from './keyboard';
+import dialog from './components/dialog';
+import keyboard from './components/keyboard';
 
 // 组件
-import numberKeyboard from './number_keyboard';
-import xswitch from './switch';
-import xcheckbox from './checkbox';
-import xRadio from './radio';
-import xSelect from './select';
-import xTree from './tree';
-import xTransfer from './transfer';
-import xInputNumber from './input_number';
+import numberKeyboard from './components/number_keyboard';
+import xswitch from './components/switch';
+import xcheckbox from './components/checkbox';
+import xRadio from './components/radio';
+import xSelect from './components/select';
+import xTree from './components/tree';
+import xTransfer from './components/transfer';
+import xInputNumber from './components/input_number';
 
 const components = [
     numberKeyboard,

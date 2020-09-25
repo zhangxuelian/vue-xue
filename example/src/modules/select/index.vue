@@ -4,11 +4,11 @@
     </div>
 </template>
 <script>
-import xSelect from "../../../../src/select";
+/* import xSelect from "../../../../src/select"; */
 export default {
-    components:{
+    /* components:{
         xSelect
-    },
+    }, */
     data(){
         return {
             selectConfig:{

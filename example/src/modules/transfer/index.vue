@@ -4,11 +4,11 @@
     </div>
 </template>
 <script>
-import xTransfer from "../../../../src/transfer";
+/* import xTransfer from "../../../../src/transfer"; */
 export default {
-    components:{
+    /* components:{
         xTransfer
-    },
+    }, */
     data(){
         return {
             transferConfig:{

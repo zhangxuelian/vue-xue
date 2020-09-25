@@ -4,11 +4,11 @@
     </div>
 </template>
 <script>
-import xTree from "../../../../src/tree";
+/* import xTree from "../../../../src/tree"; */
 export default {
-     components:{
+    /*  components:{
         xTree
-    },
+    }, */
     data(){
         return {
              treeConfig:{

@@ -4,11 +4,11 @@
     </div>
 </template>
 <script>
-import xInputNumber from "../../../../src/input_number";
+/* import xInputNumber from "../../../../src/input_number"; */
 export default {
-    components:{
+    /* components:{
         xInputNumber
-    },
+    }, */
     data(){
         return {
              numberConfig:{
