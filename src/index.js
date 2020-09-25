@@ -23,6 +23,8 @@ import xSelect from './components/select';
 import xTree from './components/tree';
 import xTransfer from './components/transfer';
 import xInputNumber from './components/input_number';
+import xTabs from './components/tabs';
+import xTabPane from './components/tabs/tab_pane';
 
 const components = [
     numberKeyboard,
@@ -32,7 +34,9 @@ const components = [
     xSelect,
     xTree,
     xTransfer,
-    xInputNumber
+    xInputNumber,
+    xTabs,
+    xTabPane
 ];
 
 export default {

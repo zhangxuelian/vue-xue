@@ -29,7 +29,7 @@ export default {
 };
 </script>
 <style lang="scss">
-   @import "./src/assets/css/common.scss";
+  @import "./src/assets/css/common.scss";
 </style>
 
 <style lang="scss" scoped>
