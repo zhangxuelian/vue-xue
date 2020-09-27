@@ -129,41 +129,41 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.xue-transfer-wrap{
-    display: flex;
-    height: 100%;
-    .transfer-middle{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 0 15px;
-        box-sizing: border-box;
-    }
-    .transfer-btn{
-        border-radius: 4px;
-        outline:  0;
-        height: 40px;
-        width: 60px;
-        color: #fff;
-        background-color: #409eff;
-        cursor: pointer;
-        outline: 0;
-        border:0;
-        &:hover{
-            color: #fff;
-            background-color: #66b1ff;
-        }
-        &.transfer-btn-disabled{
-            cursor:not-allowed;
-            background-color: #a0cfff;
-        }
-    }
-    .transfer-btn + .transfer-btn{
-        margin-top: 15px;
-    }
-    ::-webkit-scrollbar-button:vertical {
-    display: none;
-}
-}
+// .xue-transfer-wrap{
+//     display: flex;
+//     height: 100%;
+//     .transfer-middle{
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         padding: 0 15px;
+//         box-sizing: border-box;
+//     }
+//     .transfer-btn{
+//         border-radius: 4px;
+//         outline:  0;
+//         height: 40px;
+//         width: 60px;
+//         color: #fff;
+//         background-color: #409eff;
+//         cursor: pointer;
+//         outline: 0;
+//         border:0;
+//         &:hover{
+//             color: #fff;
+//             background-color: #66b1ff;
+//         }
+//         &.transfer-btn-disabled{
+//             cursor:not-allowed;
+//             background-color: #a0cfff;
+//         }
+//     }
+//     .transfer-btn + .transfer-btn{
+//         margin-top: 15px;
+//     }
+//     ::-webkit-scrollbar-button:vertical {
+//     display: none;
+// }
+// }
     
 </style>

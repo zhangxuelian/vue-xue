@@ -1,0 +1,100 @@
+.x-dialog-wrap {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 2000;
+  }
+  .x-dialog-container {
+    background: #fff;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    min-width: 300px;
+  }
+  .layer-anim {
+    animation-fill-mode: both;
+    animation-duration: 0.3s;
+  }
+  @keyframes layer-bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  .layer-anim-00 {
+    animation-name: layer-bounceIn;
+  }
+  .x-dialog-header {
+    height: 45px;
+    border-bottom: solid 1px #eee;
+    position: relative;
+    padding-right: 45px;
+    box-sizing: border-box;
+  }
+  .x-dialog-title {
+    line-height: 45px;
+    padding: 0 15px;
+    display: block;
+  }
+  .x-dialog-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    cursor: pointer;
+    background-position: center center;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAwklEQVRYR+2V0Q2AIAxEK5PpELoCYSLCCjqETkYMiSaEqFz7IZrUX9ve8zhsR42frrE+KYA6oA5ADnjve+fcxrmyaE8VIA0yxqxEtFhrJwQihDAT0RhjHGrgVYAkeA5EIDi1aTYEgEJwxVkANQiJOBvgDkIqLgIoIY5Qjkg+rgIMZ6Bszr46vYJvSDnnnwD5mb9+BFeBey2ET0JSCDgDiABSIwohZzCnFvoPfGIZoas1txftgTOArGFJjQKoA+pAcwd26uiQIdRekm8AAAAASUVORK5CYII=);
+  }
+  .x-dialog-close:hover {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAxElEQVRYR+2VUQqDMBBEJ/Ri8RD2AEJPVfAA9RDmYqIESglBzewKSYXNr5ud52SSdWi8XGN9GIA5YA5QDvj36sPLBcmVZfcUAWIjPDADmMLgngyEH9cPgB4LuhJ4ESAK/hoSEJLa2JsCYCGk4iKAEoRGXAxwBKEVVwHkEN9Q9pKQpkGmM5CnP/nr+Im+IXmfewKkZ179CPYCVy2EZ0JaCDoDjABTowqhpLGklnoH/mMYtRzHzPi9UkOH8IrI2V4DMAfMgQ03F4whxalSiAAAAABJRU5ErkJggg==);
+  }
+  .x-dialog-content {
+  }
+  .x-dialog-footer {
+    height: 38px;
+    padding: 10px;
+    border-top: solid 1px #eee;
+    text-align: right;
+  }
+  .x-dialog-footer button {
+    padding: 8px 15px;
+    background: #eee;
+    font-family: Microsoft Yahei;
+    border-radius: 3px;
+    margin-left: 10px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    color: #666;
+  }
+  .x-dialog-cancel {
+  }
+  .x-dialog-cancel:hover {
+    color: #409eff;
+    border-color: #c6e2ff;
+    background-color: #ecf5ff;
+  }
+  .x-dialog-confirm {
+    color: #fff !important;
+    background-color: #409eff !important;
+    border-color: #409eff !important;
+  }
+  .x-dialog-confirm :hover {
+    background: #66b1ff !important;
+    border-color: #66b1ff !important;
+    color: #fff;
+  }

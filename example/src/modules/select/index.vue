@@ -1,14 +1,16 @@
 <template>
     <div class="demo-wrap">
         <div class="title">select选择器</div>
-        <h4>单选可过滤</h4>
+        <div>单选可过滤</div>
         <x-select :select-config="selectConfig1"></x-select>
-        <h4>单选不可过滤</h4>
+        <div>单选不可过滤</div>
         <x-select :select-config="selectConfig2"></x-select>
-        <h4>多选可过滤</h4>
+        <div >多选可过滤</div>
         <x-select :select-config="selectConfig3"></x-select>
-        <h4>禁用</h4>
+        <div >禁用</div>
         <x-select :select-config="selectConfig4" :disabled="true"></x-select>
+        <div >自定义条目</div>
+        <x-select :select-config="selectConfig5"  @change="change"></x-select>
     </div>
 </template>
 <script>
@@ -71,9 +73,33 @@ export default {
                         value: "2",
                     },
                 ],
-                setValue:'2'
+                setValue:'2',
+                panelHeight: "auto",
+            },
+            selectConfig5: {
+                create: true,
+                data: [
+                    {
+                        label: "ceshi",
+                        value: "ceshi",
+                    },
+                    {
+                        label: "ceshi2",
+                        value: "ceshi2",
+                    },
+                ],
+                setValue:'ceshi3',
+                panelHeight: "auto",
+                onSelect:item=>{
+                    console.log(item)
+                }
             },
         };
     },
+    methods:{
+        change(value){
+            console.log(value)
+        }
+    }
 };
 </script>

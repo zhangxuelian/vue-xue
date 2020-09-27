@@ -1,0 +1,85 @@
+.xue-input-number-wrap {
+    position: relative;
+    display: inline-block;
+    .input-number-btn {
+        position: absolute;
+        font-size: 22px;
+        z-index: 1;
+        top: 1px;
+        width: 40px;
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+        background: #f5f7fa;
+        color: #606266;
+        cursor: pointer;
+        box-sizing: border-box;
+        &.input-number-decrease {
+            left: 1px;
+            border-radius: 4px 0 0 4px;
+            border-right: 1px solid #dcdfe6;
+        }
+        &.input-number-increase {
+            right: 1px;
+            border-radius: 0 4px 4px 0;
+            border-left: 1px solid #dcdfe6;
+        }
+        &:hover {
+            color: #409eff;
+        }
+        &.input-number-btn-disabled {
+            cursor: not-allowed;
+            border-color: #e4e7ed;
+            color: #e4e7ed;
+            &:hover {
+                color: #e4e7ed;
+            }
+        }
+    }
+    .input-number-input {
+        border-radius: 4px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #dcdfe6;
+        outline: none;
+        width: 180px;
+        font-size: inherit;
+        box-sizing: border-box;
+        padding-left: 50px;
+        padding-right: 50px;
+        &.is-suffix {
+            padding-right: 70px;
+        }
+        &:hover {
+            border-color: #c0c4cc;
+        }
+        &:active,
+        &:focus {
+            border-color: #409eff;
+        }
+    }
+    .input-number-suffix {
+        position: absolute;
+        right: 50px;
+        line-height: 40px;
+    }
+    // &:hover{
+    //     .input-number-input{
+    //         border-color: #409eff;
+    //     }
+    // }
+    &.xue-input-number-disabled {
+        cursor: not-allowed;
+        border-color: #e4e7ed;
+        color: #e4e7ed;
+        .input-number-input {
+            color: #c0c4cc;
+            background-color: #f5f7fa;
+            &:hover,
+            &:active,
+            &:focus {
+                border-color: #e4e7ed;
+            }
+        }
+    }
+}

@@ -12,7 +12,7 @@
     box-sizing: border-box;
     cursor: pointer;
     padding-right: 25px;
-    color: #333;
+    color: #2B3646;
     border: 1px solid #dcdfe6;
     outline: 0;
     font-size:inherit;
@@ -51,7 +51,7 @@
     &.dropdown-icon {
       pointer-events: none;
       transition: all 0.3s ease-out;
-      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAYAAAByDd+UAAACIUlEQVRIS+2Ty2sTURTGvzO2u1opPuuyM6n4FhERUdD/ITMrd25EOiMiSqEUFYWgqGhRjKHWruoi+Cppy4QU3Pk/lKbWB0RUhNZOOmmSHrmTEWLT5OZF3eSu7/d95/zOOcTMm7CBj1qBzabdQtpsovi/SJ+8Sp7L53gIxBHLCPQ30t6Ld8ndixl+qwCd7bR65oLe+034/dPhUHT2GRjnvSCiR5auXqkndPj1bHc6h2kAvULfRsrpi3rPh5LA0cn57b+X8nEGHyxk4oGpa9dqCQ3HZnZl0jRNoD1CpwChPkMb/OtRMsPh8Y/blt28zcDhwie+Vy3ekfEvO5fcTALAXq9g8G3TCNwoLnjdpQm/SW5dybIN4IgnVHDHDGoDlTqN2J92uAtZEbbP/3fTMrRbazVlt/RlLNX1Pe3YBBz1RSGrCE2xkTcKJ5dgxv5CgTRoBtXQegVWPItIbKZr2VGmiHCsHCIxgrSbF50dEPyhYMAKanfL0ZDe4XP76xZnwZ0CcHwtKi8ssxoH8yEvDNxvGYH7ldBLA4V4bOJz509nZRLACX97r7e3UTib5bi/XEygq6ahPpRtdFWBwmT0/fzmxR+5CTBO+tubAqhbdKaQcrlP73ksCyu5Q5kgmpjrSP3iGMCn/L9MRJapq09l2rJ3KBNGonMdLvMYwGcJdMk01BGZRnqHtRjU+rfqGdZqXPdZNCuo7hk2WkALaaMES/QbjvQP/Q4MLDnxrlEAAAAASUVORK5CYII=");
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAsUlEQVQ4T2NkoDJgpLJ5DKMGUh6iWMOwZ/6ufwwMBMP3X0miGzO6E7AaWD91FQ8vl8BnfO79zC3F3him84soA0GKeubvrGBgYGzHYWhmSaLbDGxyeJNNz/xdbxkYGITQND4rSXSTxuV6gumwZ/6u/8iaSxLd8OohaGDf3F0m/5gYTkMM/a9Zkuh+A1/YEjQQEp679jIwMH4qSXQNJJSwiDKQkCHI8qMGkhJa2NUO/jAEANm4JRWmrrgRAAAAAElFTkSuQmCC");
       background-size: 100% 100%;
 
       &.is-reverse {
@@ -111,7 +111,7 @@
     overflow: auto !important;
     height: 100% !important;
     box-sizing: border-box;
-    padding: 0;
+    padding: 5px 0 0 0;
     margin: 0;
 
     li {
@@ -119,25 +119,22 @@
       cursor: pointer;
       text-align: left !important;
       display: table;
-      padding-left: 3px;
+      padding-left: 5px;
       margin: 0 !important;
       border-collapse: initial;
       box-sizing: border-box;
-      min-height: 34px !important;
-      line-height: 34px !important;
-      color: #606266;
+      min-height: 30px !important;
+      line-height: 30px !important;
+      color: #2B3646;
 
       &.active {
-        font-weight: 700;
-        color: #409eff;
+        // font-weight: 700;
+        color: #2B5FDA;
       }
 
       &:hover {
-        background: #F5F7FA;
-
-        .check-icon {
-          color: #F5F7FA;
-        }
+        background: #e0efff;
+        color: #2B5FDA;
       }
 
       input[type="checkbox"] {
@@ -219,8 +216,4 @@
       top: -6px;
     }
   }
-}
-
-::-webkit-scrollbar-button:vertical {
-  display: none;
 }

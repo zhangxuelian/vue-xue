@@ -142,7 +142,7 @@ export default {
 </script>
 
 <style>
-.x-dialog-wrap {
+/* .x-dialog-wrap {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -241,5 +241,5 @@ export default {
   background: #66b1ff !important;
   border-color: #66b1ff !important;
   color: #fff;
-}
+} */
 </style>

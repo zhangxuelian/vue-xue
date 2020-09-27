@@ -97,52 +97,5 @@ export default {
 </script>
 
 <style scoped>
-.x-switch-wrap {
-}
-.x-switch-container {
-  position: relative;
-  cursor: pointer;
-}
-.x-switch-text.x-switch-container {
-  width: 400px;
-  height: 50px;
-  background-color: #dbe7ff;
-  border-radius: 25px;
-}
-.x-switch-text .x-switch-slider {
-  width: 200px;
-  height: 50px;
-  line-height: 50px;
-  background-color: #007ae6;
-  color: #fff;
-  border-radius: 25px;
-  font-size: 20px;
-  text-align: center;
-  position: absolute;
-  top: 0;
-  transition: left 0.5s;
-}
-.x-switch-slider.slider-0 {
-  left: 0;
-}
-.x-switch-slider.slider-1 {
-  left: 200px;
-}
-.x-switch-text .x-switch-span {
-  height: 50px;
-  line-height: 50px;
-  color: #007ae6;
-  border-radius: 25px;
-  text-align: center;
-  font-size: 20px;
-  width: 200px;
-  position: absolute;
-  top: 0;
-}
-.x-switch-span.span-0 {
-  left: 200px;
-}
-.x-switch-span.span-1 {
-  left: 0;
-}
+
 </style>

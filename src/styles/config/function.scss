@@ -1,0 +1,171 @@
+// Ascending
+// Used to evaluate Sass maps like our grid breakpoints.
+@mixin _assert-ascending($map, $map-name) {
+    $prev-key: null;
+    $prev-num: null;
+  
+    @each $key,
+    $num in $map {
+      @if $prev-num==null or unit($num)=="%"or unit($prev-num)=="%" {
+        // Do nothing
+      }
+  
+      @else if not comparable($prev-num, $num) {
+        @warn "Potentially invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} whose unit makes it incomparable to #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+      }
+  
+      @else if $prev-num>=$num {
+        @warn "Invalid value for #{$map-name}: This map must be in ascending order, but key '#{$key}' has value #{$num} which isn't greater than #{$prev-num}, the value of the previous key '#{$prev-key}' !";
+      }
+  
+      $prev-key: $key;
+      $prev-num: $num;
+    }
+  }
+  
+  // Starts at zero
+  // Used to ensure the min-width of the lowest breakpoint starts at 0.
+  @mixin _assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
+    $values: map-values($map);
+    $first-value: nth($values, 1);
+  
+    @if $first-value !=0 {
+      @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
+    }
+  }
+  
+  @function tint-color($color, $level) {
+    @return mix(white, $color, $level * $theme-color-interval);
+  }
+  
+  @function shade-color($color, $level) {
+    @return mix(black, $color, $level * $theme-color-interval);
+  }
+  
+  // Helper function to replace negative values with 0
+  @function valid-radius($radius) {
+    $return: ();
+  
+    @each $value in $radius {
+      @if type-of($value)==number {
+        $return: append($return, max($value, 0));
+      }
+  
+      @else {
+        $return: append($return, $value);
+      }
+    }
+  
+    @return $return;
+  }
+  
+  @mixin border-radius($radius: $border-radius, $fallback-border-radius: false) {
+    @if $enable-rounded {
+      border-radius: valid-radius($radius);
+    }
+  
+    @else if $fallback-border-radius !=false {
+      border-radius: $fallback-border-radius;
+    }
+  }
+  
+  @mixin border-top-radius($radius) {
+    @if $enable-rounded {
+      border-top-left-radius: valid-radius($radius);
+      border-top-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-right-radius($radius) {
+    @if $enable-rounded {
+      border-top-right-radius: valid-radius($radius);
+      border-bottom-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-bottom-radius($radius) {
+    @if $enable-rounded {
+      border-bottom-right-radius: valid-radius($radius);
+      border-bottom-left-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-left-radius($radius) {
+    @if $enable-rounded {
+      border-top-left-radius: valid-radius($radius);
+      border-bottom-left-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-top-left-radius($radius) {
+    @if $enable-rounded {
+      border-top-left-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-top-right-radius($radius) {
+    @if $enable-rounded {
+      border-top-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-bottom-right-radius($radius) {
+    @if $enable-rounded {
+      border-bottom-right-radius: valid-radius($radius);
+    }
+  }
+  
+  @mixin border-bottom-left-radius($radius) {
+    @if $enable-rounded {
+      border-bottom-left-radius: valid-radius($radius);
+    }
+  }
+  
+  
+  // Lists
+  
+  // Unstyled keeps list items block level, just removes default browser padding and list-style
+  @mixin list-unstyled() {
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  // clearfix
+  @mixin clearfix() {
+    &::after {
+      display: block;
+      clear: both;
+      content: "";
+    }
+  }
+  
+  @mixin text-overflow-ellipsis() {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  
+  // 三角箭头样式(默认居中)
+  
+  @mixin triangle($border-width,$border-color,$margin-left:50%) {
+    border: solid $border-width transparent;
+    border-bottom: solid $border-width $border-color;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: -(2*$border-width);
+    left: -$border-width;
+    margin-left: $margin-left;
+  
+    &::before {
+      content: "";
+      display: block;
+      width: 0;
+      height: 0;
+      border: solid ($border-width+1) transparent;
+      border-bottom: solid ($border-width+1) #fff;
+      position: absolute;
+      left: -($border-width+1);
+      top: -$border-width;
+    }
+  }

@@ -14,8 +14,9 @@
             v-model="selectConf.inputLabel"
             :style="iptStyle"
             :disabled="disabled"
-            :readonly="true"
+            :readonly="!selectConf.create"
             :placeholder="selectConf.placeholderText"
+            @blur="panelBlur()"
         />
         <i @click="clear()" title="清空" class="icon delete-icon" v-show="showClose"></i>
         <i
@@ -24,9 +25,9 @@
             v-if="!showClose"
         ></i>
 
-        <transition :name="isPlacementTop ? 'el-zoom-in-bottom':'el-zoom-in-top'">
+        <!-- <transition :name="isPlacementTop ? 'el-zoom-in-bottom':'el-zoom-in-top'"> -->
             <div class="x-select-content" :id="id" :style="contentStyle" v-show="isDropdown">
-                <div class="filter-wrap" v-if="selectConf.filter">
+                <div class="filter-wrap" v-if="selectConf.filter && !selectConf.create">
                     <div class="select-filter-wrap">
                         <input type="text" v-model="selectConf.myLabel" class="select-filter" />
                     </div>
@@ -53,7 +54,7 @@
                 </ul>
                 <div class="triangle" :class="{'placement-top':isPlacementTop}"></div>
             </div>
-        </transition>
+        <!-- </transition> -->
     </div>
 </template>
 <script>
@@ -62,6 +63,10 @@ import normalUtil from "@/util/data_util";
 import xCheckbox from "../checkbox";
 export default {
     name: "x-select",
+    // model:{
+    //     prop: "value",
+    //     event: "change"
+    // },
     props: ["selectConfig", "disabled", "selectClass"],
     components: { xCheckbox },
     directives: {
@@ -100,6 +105,7 @@ export default {
                 data: [],
                 filterData: [],
                 checkbox: false,
+                create: false,//创建条目,为true时，输入过滤器隐藏可过滤
                 filter: true, // 是否可以过滤
                 enableEmpty: true, //是否可以置空
                 valueField: "value", //对应选项value值
@@ -131,7 +137,7 @@ export default {
         this.contentStyle = {
             width: this.selectConf.panelWidth,
             height: this.selectConf.panelHeight,
-            paddingTop: this.selectConf.filter ? "38px" : "0",
+            paddingTop: this.selectConf.filter && !this.selectConf.create ? "38px" : "0",
         };
         this.iptStyle = {
             width: this.selectConf.panelWidth,
@@ -289,9 +295,12 @@ export default {
             this.isDropdown = false;
             this.isReverse = false;
         },
+        panelBlur(){
+            this.$emit('blur',this.selectConf.inputLabel);
+        }
     },
     watch: {
-        "selectConf.myLabel": function (newVal, oldVal) {
+        filterLabel(newVal, oldVal) {
             if (newVal) {
                 this.selectConf.filterData = this.selectConf.data.filter(
                     (item) => {
@@ -306,6 +315,9 @@ export default {
                 this.selectConf.filterData = this.selectConf.data;
             }
         },
+        'selectConf.inputLabel':function(){
+            this.$emit('change',this.selectConf.inputLabel);
+        },
         "selectConf.data": function (newVal, oldVal) {
             if (newVal) {
                 this.selectConf.filterData = this.selectConf.data;
@@ -315,12 +327,18 @@ export default {
             this.setVal = newVal;
         },
         setVal(value) {
+            if(this.selectConf.create){ // 自定义条目赋值
+                this.selectConf.inputLabel = this.selectConf.setValue;
+            }
             this.setValue(value);
         },
     },
     computed: {
         selectConf() {
             return Object.assign(this.defaultSelectConfig, this.selectConfig);
+        },
+        filterLabel(){
+            return this.selectConf.create ? this.selectConf.inputLabel : this.selectConf.myLabel;
         },
         showClose() {
             return (
@@ -339,6 +357,3 @@ export default {
     },
 };
 </script>
-<style  scoped lang="scss">
-@import "./select.scss";
-</style>
