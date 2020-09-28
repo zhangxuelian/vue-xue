@@ -1,15 +1,24 @@
 <template>
   <div class="example-wrap">
-    <div class="example-header">vue-xue example</div>
+    <div class="example-header">
+      <span>vue-xue example</span>
+      <ul class="menu-list">
+        <li v-for="(item,$index) in menuData" :key="$index">
+          <router-link :to="{path:item.path}">{{item.name}}</router-link>
+          <!-- <a @click="navItemClick(item)" :class="{'active': currentNav==item.name}">{{item.name}}</a> -->
+        </li>
+      </ul>
+      </div>
     <div class="example-body">
-      <div class="nav-list">
+       <router-view></router-view>
+      <!-- <div class="nav-list">
         <ul>
           <li v-for="item in menuList" :key="item" @click="linkRoute(item)">{{item}}</li>
         </ul>
       </div>
       <div class="module-wrap">
         <router-view></router-view>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -19,13 +28,35 @@ export default {
   data() {
     return {
       menuList: DIRECTORY || [],
+      menuData:[{
+          path: "/getting_started",
+          name: '入门指南'
+        }, {
+            path: '/component',
+            name: '组件'
+        }, {
+            path: '/ui',
+            name: 'UI'
+        }, {
+            path: '/tool',
+            name: '工具库'
+        }],
+        // currentNav:'入门指南'
     };
   },
-  methods: {
-    linkRoute(item) {
-      this.$router.push("/" + item);
-    },
+  mounted(){
+    console.log(this.$router)
+    
   },
+  // methods: {
+  //   navItemClick(item){
+  //     this.currentNav = item.name;
+  //     this.$router.push(item.path);
+  //   },
+  //   linkRoute(item) {
+  //     this.$router.push("/component" + item);
+  //   },
+  // }
 };
 </script>
 <style lang="scss">
@@ -46,6 +77,22 @@ export default {
     line-height: 70px;
     padding: 0 10%;
     text-transform: uppercase;
+    .menu-list{
+      font-size: 16px;
+      float: right;
+      display: flex;
+      li{
+        padding: 0 15px;
+      }
+      
+      li a {
+        text-decoration: none;
+        color: #fff;
+        &.router-link-active{
+          color: #333;
+        }
+      }
+    }
   }
   .example-body {
     flex-grow: 1;

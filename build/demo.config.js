@@ -2,7 +2,9 @@
 
 const path = require('path');
 const webpack = require('webpack');
-const { VueLoaderPlugin } = require('vue-loader');
+const {
+    VueLoaderPlugin
+} = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const directory = fs.readdirSync('./example/src/modules');
@@ -18,8 +20,7 @@ let demoConfig = {
         publicPath: './'
     },
     module: {
-        rules: [
-            {
+        rules: [{
                 test: /\.vue$/,
                 use: ['vue-loader']
             },
@@ -56,6 +57,18 @@ let demoConfig = {
                         name: 'fonts/[name]--[folder].[ext]'
                     }
                 }
+            }, {
+                test: /\.md$/,
+                use: [{
+                        loader: 'vue-loader'
+                    },
+                    {
+                        loader: 'vue-markdown-loader/lib/markdown-compiler',
+                        options: {
+                            raw: true
+                        }
+                    }
+                ]
             }
         ]
     },

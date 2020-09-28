@@ -13,7 +13,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-    @import "./keyboard.css";
-</style>
