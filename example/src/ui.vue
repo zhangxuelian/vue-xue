@@ -1,5 +1,5 @@
 <template>
-    <div class="component-demo-wrap">
+ <div class="ui-demo-wrap">
         <div class="nav-list">
             <ul>
                 <li
@@ -18,22 +18,23 @@
 </template>
 <script>
 export default {
-    data() {
+      data() {
         return {
-            menuList: DIRECTORY || [],
+            menuList: uiDirectory || [],
         };
     },
-    methods: {
+     methods: {
         linkRoute(item) {
             this.$router.push({
-                path:'/component/'+ item
+                path:'/ui/'+ item
             });
         },
     },
-};
+    
+}
 </script>
 <style lang="scss" scoped>
-.component-demo-wrap {
+.ui-demo-wrap {
     flex-grow: 1;
     display: flex;
     padding: 0 5%;
@@ -50,7 +51,7 @@ export default {
                 line-height: 40px;
                 padding: 0 10px;
                 cursor: pointer;
-                &:hover{
+                 &:hover{
                     background: #cee0f0;
                 }
             }
@@ -62,4 +63,5 @@ export default {
         padding: 10px;
     }
 }
+    
 </style>

@@ -3,8 +3,8 @@
     <div class="module-wrap">
       <div class="title">弹窗组件</div>
       <div class="content">
-        <button @click="dialog1">自定义弹窗--内容</button>
-        <button>自定义弹窗--组件</button>
+        <button @click="dialog1" class="xui-btn">自定义弹窗--内容</button>
+        <button class="xui-btn">自定义弹窗--组件</button>
       </div>
       <div class="config"></div>
     </div>

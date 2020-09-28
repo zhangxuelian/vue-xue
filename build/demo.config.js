@@ -8,6 +8,7 @@ const {
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const fs = require('fs');
 const directory = fs.readdirSync('./example/src/modules');
+const uiDirectory = fs.readdirSync('./example/src/ui');
 
 let demoConfig = {
     devtool: 'cheap-module-eval-source-map',
@@ -81,7 +82,8 @@ let demoConfig = {
             template: path.resolve(__dirname, '../example/index.html')
         }),
         new webpack.DefinePlugin({
-            DIRECTORY: JSON.stringify(directory)
+            DIRECTORY: JSON.stringify(directory),
+            uiDirectory: JSON.stringify(uiDirectory)
         })
     ],
     resolve: {

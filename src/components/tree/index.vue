@@ -1,7 +1,7 @@
 <template>
     <div class="x-tree-wrap" :class="{'tree-search': treeConf.search}">
         <div class="search-container" v-if="treeConf.search">
-            <input type="text" class="search-ipt" v-model="searchText" :placeholder="treeConf.placeholderText">
+            <input type="text" class="search-ipt xui-input" v-model="searchText" :placeholder="treeConf.placeholderText">
         </div>
         <tree-node :nodeData="treeConf.data"></tree-node>
         <!-- <div class="x-tree-container" v-for="(item,$index) in treeConf.data" :key="$index">

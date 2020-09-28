@@ -1,0 +1,65 @@
+// (name,height,width,padding-x,font-size, border-radius)
+$input-size: (
+    (lg,40,200,15,15,4),
+    (middle, 32,180,15,14,3),
+    (sm,28,120,8,13,3)
+);
+.xui-input{
+    -webkit-appearance: none;
+    background-color: $color-white;
+    background-image: none;
+    border-radius: 3px;
+    border: 1px solid $border-color-base;
+    box-sizing: border-box;
+    color: $color-text-regular;
+    display: inline-block;
+    font-size: 14px;
+    height: 36px;
+    line-height: 36px;
+    outline: none;
+    padding: 0 15px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    width: 180px;
+    &.is-round{
+        border-radius: 18px;
+    }
+    &:hover{
+        border-color: shade-color($border-color-base,1);
+    }
+    &:focus{
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 2px rgba(64,158,255,0.1);
+    }
+    &::-webkit-input-placeholder{
+        color:$color-text-placeholder;
+    }
+    &::-moz-placeholder{   /* Mozilla Firefox 19+ */
+        color:$color-text-placeholder;
+    }
+    &:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+        color:$color-text-placeholder;
+    }
+    &:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+        color:$color-text-placeholder;
+    }
+    &[disabled] {
+        cursor: not-allowed;
+        background-color: $background-color-base;
+        border-color: $border-color-light;
+    }
+}
+@each $name,$height,$width,$padding-x,$font-size,$border-radius in $input-size {
+    .xui-input-#{$name}{
+        height: #{$height}px;
+        line-height: #{$height}px;
+        padding: 0 #{$padding-x}px;
+        font-size: #{$font-size}px;
+        border-radius: #{$border-radius}px;
+        width: #{$width}px;
+        &.is-round{
+            border-radius: #{$height/2}px;
+            padding: 0 #{$padding-x+3}px;
+        }
+    }
+}

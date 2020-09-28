@@ -9,6 +9,15 @@ theModules.forEach(item => {
         component: (resolve) => require(['@/modules/' + item], resolve)
     })
 });
+const uiModules= uiDirectory||[];
+const uiChild = [];
+uiModules.forEach(item => {
+    uiChild.push({
+    path:  item,
+    name: item,
+    component: (resolve) => require(['@/ui/' + item], resolve)
+    })
+});
 const routes=[{
     path:'*',
     redirect:'/getting_started'
@@ -22,7 +31,10 @@ const routes=[{
     component: (resolve) => require(['@/component'], resolve),
     children: componentChild
 },{
-    path:'/ui'
+    path:'/ui',
+    name:'ui',
+    component:(resolve) => require(['@/ui'], resolve),
+    children:uiChild
 },{
     path:'/tool'
 }]

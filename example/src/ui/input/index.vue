@@ -1,0 +1,35 @@
+<template>
+    <div class="demo-wrap">
+        <p class="title">基础输入框</p>
+        <div class="ipt-list">
+            <input type="text" class="xui-input xui-input-lg" placeholder="大尺寸输入框">
+            <input type="text" class="xui-input" placeholder="默认输入框">
+            <input type="text" class="xui-input xui-input-middle" placeholder="中尺寸输入框">
+            <input type="text" class="xui-input xui-input-sm" placeholder="小尺寸输入框">
+        </div>
+        <div class="ipt-list">
+            <input type="text" class="xui-input xui-input-lg is-round" placeholder="大尺寸圆角框">
+            <input type="text" class="xui-input is-round" placeholder="默认圆角框">
+            <input type="text" class="xui-input xui-input-middle is-round" placeholder="中尺寸圆角框">
+            <input type="text" class="xui-input xui-input-sm is-round" placeholder="小尺寸圆角框">
+        </div>
+        <p class="title">禁用输入框</p>
+        <div class="ipt-list">
+            <input type="text" disabled class="xui-input xui-input-lg" placeholder="大尺寸输入框">
+            <input type="text" disabled class="xui-input" placeholder="默认输入框">
+            <input type="text" disabled class="xui-input xui-input-middle" placeholder="中尺寸输入框">
+            <input type="text" disabled class="xui-input xui-input-sm" placeholder="小尺寸输入框">
+        </div>
+        <div class="ipt-list">
+            <input type="text" disabled class="xui-input xui-input-lg is-round" placeholder="大尺寸圆角框">
+            <input type="text" disabled class="xui-input is-round" placeholder="默认圆角框">
+            <input type="text" disabled class="xui-input xui-input-middle is-round" placeholder="中尺寸输入框">
+            <input type="text" disabled class="xui-input xui-input-sm is-round" placeholder="小尺寸圆角框">
+        </div>
+    </div>
+</template>
+<style lang="scss">
+.demo-wrap .ipt-list{
+    margin-bottom: 10px;
+}
+</style>

@@ -8,7 +8,7 @@
         <input
             @click="openPanel($event)"
             type="text"
-            class="select-input"
+            class="select-input xui-input"
             :title="selectConf.inputLabel"
             :class="selectClass"
             v-model="selectConf.inputLabel"
@@ -29,7 +29,7 @@
             <div class="x-select-content" :id="id" :style="contentStyle" v-show="isDropdown">
                 <div class="filter-wrap" v-if="selectConf.filter && !selectConf.create">
                     <div class="select-filter-wrap">
-                        <input type="text" v-model="selectConf.myLabel" class="select-filter" />
+                        <input type="text" v-model="selectConf.myLabel" class="select-filter xui-input" />
                     </div>
                 </div>
 

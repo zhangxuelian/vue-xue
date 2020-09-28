@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="demo-wrap">
          <x-input-number :number-config="numberConfig" v-model="number"></x-input-number>
     </div>
 </template>
