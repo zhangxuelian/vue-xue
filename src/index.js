@@ -44,9 +44,9 @@ export default {
     install(vue) {
         vue.prototype.$xdialog = dialog;
         vue.prototype.$xkeyboard = keyboard;
+        Object.keys(directives).forEach(k => vue.directive(k, directives[k]))
         components.forEach(component => {
             vue.component(component.name, component);
-            Object.keys(directives).forEach(k => vue.directive(k, directives[k]))
         });
     }
 }
