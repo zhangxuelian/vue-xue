@@ -11,63 +11,80 @@ export default {
     //  components:{
     //     tree
     // },
-    data(){
+    data() {
         return {
-             treeConfig:{
-                 search:true,
-                expendIconPosition:'left',
-                 checkNodes:[],
-                  data: [{
-                        name:'test',
-                        id:1,
-                        children: [{
-                            name:'child1-1',
-                            id:11
-                        },{
-                            name:'child1-2',
-                            id:12
-                        }]
-                  },{
-                      name: "test2",
-                      id: 2
-                  }
+            treeConfig: {
+                search: true,
+                expendIconPosition: "left",
+                checkNodes: [],
+                data: [
+                    {
+                        name: "test",
+                        id: 1,
+                        children: [
+                            {
+                                name: "child1-1",
+                                id: 11,
+                            },
+                            {
+                                name: "child1-2",
+                                id: 12,
+                            },
+                        ],
+                    },
+                    {
+                        name: "test2",
+                        id: 2,
+                    },
                 ],
                 checkbox: true,
-                clickNode:item=>{
-                    console.log(item)
-                }
+                clickNode: (item) => {
+                    console.log(item);
+                },
             },
-            treeConfig2:{
+            treeConfig2: {
                 showIcon: true,
-                data:[{
-                    name:'菜单1',
-                    id:1,
-                    iconClass:'xue-icon xue-icon-ios-home-outline'
-                },{
-                    name:'菜单2',
-                    id:2,
-                      iconClass:'xue-icon xue-icon-ios-home-outline'
-                },{
-                    name:'菜单3',
-                    id:2,
-                      iconClass:'xue-icon xue-icon-ios-home-outline'
-                },{
-                    name:'菜单4',
-                    id:2,
-                    iconClass:'xue-icon xue-icon-ios-home-outline'
-                }],
-                clickNode:item=>{
-                    console.log(item)
-                }
-            }
-        }
-    }
-}
+                expendIconPosition: "right",
+                data: [
+                    {
+                        name: "菜单1",
+                        id: 1,
+                        iconClass: "xue-icon xue-icon-ios-home-outline",
+                        children: [
+                            {
+                                name: "child1",
+                                id: 11,
+                            },
+                        ],
+                    },
+                    {
+                        name: "菜单2",
+                        id: 2,
+                        iconClass: "xue-icon xue-icon-ios-home-outline",
+                    },
+                    {
+                        name: "菜单3",
+                        id: 2,
+                        iconClass: "xue-icon xue-icon-ios-home-outline",
+                    },
+                    {
+                        name: "菜单4",
+                        id: 2,
+                        iconClass: "xue-icon xue-icon-ios-home-outline",
+                    },
+                ],
+                clickNode: (item) => {
+                    console.log(item);
+                },
+            },
+        };
+    },
+};
 </script>
 <style lang="scss">
-.demo-wrap .xue-icon{
-   display: inline-block;
+.demo-wrap .xue-icon {
+    display: inline-block;
     font-size: 20px;
-    color:inherit;
+    color: inherit;
 }
 </style>

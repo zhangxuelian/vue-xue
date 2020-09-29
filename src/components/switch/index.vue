@@ -2,7 +2,7 @@
   <div class="x-switch-wrap">
     <div
       class="x-switch-container"
-      :class="['x-switch-'+myParams.type,myParams.className]"
+      :class="{['x-switch-'+myParams.type]:true,[myParams.className]:true,'x-switch-disabled':myParams.disabled}"
       @click="change"
     >
       <div class="x-switch-slider" :class="'slider-'+switchIndex">{{switchText.activeText}}</div>
@@ -23,7 +23,8 @@ export default {
         data: [0, 1],
         valueField: null,
         textField: null,
-        activeValue: 0
+        activeValue: 0,
+        disabled: false
       }
     };
   },
@@ -78,6 +79,7 @@ export default {
   },
   methods: {
     change() {
+      if(this.myParams.disabled) return;
       let index = this.switchIndex == 0 ? 1 : 0;
       if (this.myParams.valueField) {
         this.myParams.activeValue = this.myParams.data[index][
