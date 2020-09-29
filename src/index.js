@@ -8,7 +8,8 @@ import validUtil from './util/valid_util';
 import dataUtil from './util/data_util';
 
 // 指令
-import './directive';
+// import './directive';
+import *as directives from './directive/index'
 
 // 使用vue.use()可注入全局
 import dialog from './components/dialog';
@@ -45,6 +46,7 @@ export default {
         vue.prototype.$xkeyboard = keyboard;
         components.forEach(component => {
             vue.component(component.name, component);
+            Object.keys(directives).forEach(k => vue.directive(k, directives[k]))
         });
     }
 }
