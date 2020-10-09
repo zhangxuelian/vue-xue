@@ -4,6 +4,7 @@
             <x-tab-pane label="示例" value="1">
                 <div class="title">checkbox复选框</div>
                 <x-checkbox v-model="isCheck" value="香蕉">测试</x-checkbox>
+                <div>选中状态{{isCheck}}</div>
                 <div class="title">禁用</div>
                 <x-checkbox v-model="isCheck" value="香蕉" :disabled="true">测试</x-checkbox>
             </x-tab-pane>
@@ -13,12 +14,6 @@
             <x-tab-pane label="文档" value="3">
                 <md></md>
             </x-tab-pane>
-             <br>
-             <br>
-             <br>
-            <p>指令测试</p>
-            图片加载<img  alt="/" v-xImg="{src:'',err: defaultImg}">
-            <div v-xClickOutside="clickEvt">clickOutside指令</div>
         </x-tabs>
     </div>
 </template>

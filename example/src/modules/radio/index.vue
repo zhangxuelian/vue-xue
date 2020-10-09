@@ -14,6 +14,11 @@ export default {
         return {
             radioValue: "",
         }
+    },
+    watch:{
+        radioValue(){
+            console.log(this.radioValue);
+        }
     }
 }
 </script>
