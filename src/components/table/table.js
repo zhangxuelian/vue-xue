@@ -122,7 +122,6 @@ export default {
                 return item.$checked;
             });
             this.tableConf.selectAll = isSelectAll;
-            console.log( this.tableConf.checkRows)
         },
         checkboxClick(row){
             this.$forceUpdate();// 强制更新视图
@@ -188,7 +187,6 @@ export default {
             // this.tableConf.checkRowsMap[this.radioCheck[this.tableConf.uniqueId]] = true;
         },
         'tableConf.rows':function(){
-            console.log(1)
             this.formatterTable();
         }
     },

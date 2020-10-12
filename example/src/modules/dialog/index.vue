@@ -15,8 +15,6 @@
 import { dateUtil } from "xue";
 import dialog22 from './dialog1'
 export default {
-  data(){
-  },
   methods: {
     dialog1() {
       console.log(dateUtil);
