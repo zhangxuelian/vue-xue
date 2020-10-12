@@ -1,9 +1,9 @@
+import '../dist/styles/xue.css';
 import Vue from 'vue';
 import App from './App';
 import router from './src/router/router';
 import VueRouter from 'vue-router';
 import xue from 'xue';
-import '../dist/styles/xue.css';
 
 Vue.use(VueRouter);
 Vue.use(xue);

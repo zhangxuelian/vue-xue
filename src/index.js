@@ -26,6 +26,8 @@ import xTransfer from './components/transfer';
 import xInputNumber from './components/input_number';
 import xTabs from './components/tabs';
 import xTabPane from './components/tabs/tab_pane';
+import xTable from './components/table';
+import xPagination from './components/pagination';
 
 const components = [
     numberKeyboard,
@@ -37,9 +39,10 @@ const components = [
     xTransfer,
     xInputNumber,
     xTabs,
-    xTabPane
+    xTabPane,
+    xTable,
+    xPagination
 ];
-
 export default {
     install(vue) {
         vue.prototype.$xdialog = dialog;

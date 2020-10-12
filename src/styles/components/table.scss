@@ -107,6 +107,8 @@ $color-text-regular: #333;
             border-collapse:separate !important;
             border:solid 1px $table-border-color;
             color: $color-text-primary;
+            border-collapse: collapse;
+            border-spacing: 0;
 
             &.xui-table-hover {
                 tr:hover {
@@ -265,7 +267,7 @@ $color-text-regular: #333;
             }
         }
 
-        .xui-pagination-wrap {
+        .x-pagination-wrap {
             float: right;
             padding-top: 12px;
         }

@@ -2,10 +2,13 @@
 import dataUtil from '../../util/data_util';
 import xCheckbox from '../checkbox';
 import xRadio from '../radio';
+import xPagination from '../pagination';
 export default {
+    name:'x-table',
     comments:{
         xCheckbox,
-        xRadio
+        xRadio,
+        xPagination
     },
     props:{
         tableConfig:{
@@ -36,19 +39,12 @@ export default {
                 radio: false, //单选
                 selectAll: false, //是否全选
                 checkRows: [], //选中记录
-                // checkRowsMap: {}, //选中记录map
                 tableHover: true, //是否显示划过变色效果
                 showTableCol: false, //是否显示选项
                 selectAllColumn: true, //是否全选列显示
                 rowDbclick: function () {}, //行双击回调
                 rowClick: function () {}, //行单击回调
                 turnPage: function () {}, //分页回调
-                resetPage: function () { //重置page为1，并阻止turnPage回调
-                    if (this.page != 1) {
-                        this.page = 1;
-                        tableCtrl.watch.resetPageFlag = 1;
-                    }
-                },
                 toolbar: { //一般工具栏
                     show: false,
                     title: '列表',

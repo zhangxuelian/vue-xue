@@ -78,21 +78,18 @@
             </tr>
         </table>
     </div>
-    <!-- <div class="xui-table-footer" ng-if="tableConf.pagination">
-        <div class="total-size" ng-if="tableConf.pagesize">
+    <div class="xui-table-footer" v-if="tableConf.pagination">
+        <div class="total-size" v-if="tableConf.pagesize">
             <div class="total">总共<span>{{tableConf.total}}</span>条记录</div>
             <div class="size">每页显示
-                <select ng-model="tableConf.size" ng-options="pageSize for pageSize in tableConf.pageList"></select>
+                <select v-model="tableConf.size">
+                    <option  v-for="(pageSize,index) in tableConf.pageList" :key="index" :value="pageSize">{{pageSize}}</option>
+                </select>
                 条
             </div>
         </div>
-        <xue-pagination class="xui-pagination-mini" total-items="tableConf.total" max-size="mv.maxSize"
-            ng-model="tableConf.page" items-per-page="tableConf.size" boundary-links="true">
-        </xue-pagination>
-    </div> -->
+        <x-pagination :total="tableConf.total" v-model="tableConf.page" :page-size="tableConf.size" @change="tableConf.turnPage"></x-pagination>
+    </div>
 </div>
 </template>
 <script src="./table.js"></script>
-<style lang="scss" scoped>
-@import  "./table.scss";
-</style>

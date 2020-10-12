@@ -1,0 +1,101 @@
+.x-pagination-wrap {
+    display: inline-block;
+    vertical-align: top;
+    ul{
+        user-select: none;
+        list-style: none;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 0;
+        padding: 0;
+        margin: 0;
+        li {
+            background-color: #fff;
+            // color: #606266;
+            min-width: 30px;
+            padding: 0 7px;
+            vertical-align: top;
+            display: inline-block;
+            font-size: 13px;
+            height: 28px;
+            line-height: 28px;
+            cursor: pointer;
+            box-sizing: border-box;
+            text-align: center;
+            border: 1px solid #cee0f0;
+            margin-left:-1px;
+            color: #409eff;
+            &:not(.disabled).active{
+                background-color: #409eff;
+                border-color: #409eff;
+                color: #fff;
+            }
+            &:first-child{
+                margin-left:0;
+                border-top-left-radius: 3px;
+                border-bottom-left-radius: 3px;
+            }
+            &:last-child{
+                border-top-right-radius: 3px;
+                border-bottom-right-radius: 3px;
+            }
+            &:not(.disabled .active):hover{
+                background-color: #f4f7fc;
+                color:#409eff;
+            }
+            &.disabled{
+                cursor:not-allowed;
+                color: #a4a4a5;
+            }
+        }  
+    }
+    .x-pagination-button-content{
+        .page-btn{
+           padding: 5px 10px;
+            height: 30px;
+            background: #f5f8ff;
+            border: 1px solid #cee0f0;
+            border-radius: 4PX;
+            outline: 0;
+            cursor:pointer;
+            color:#2B5FDA;
+            box-sizing: border-box;
+            // box-shadow: 0px 4px 10px 0px rgba(66,122,255,0.4); 
+            &:hover{
+                background: #e4ecff;
+            }
+            &:active{
+                background: #d3e0ff;
+                
+            }
+            &.disabled{
+                background: #f5f8ff;
+                color:#A5B3C7;
+                cursor: not-allowed;
+            }
+        }
+        .page-btn + .page-btn{
+            margin-left: 10px;
+        }
+        .page-info{
+            display:inline-block;
+             margin: 0 5px;
+             .total-info{
+                display:inline-block;
+                min-width:180px;
+                text-align:center;
+                .count{
+                    margin:0 5px;
+                    font-weight: bold;
+                }
+             }
+        }
+        .page-total{
+            display:inline-block;
+            min-width:100px;
+            text-align:center;
+        }
+    }
+
+    
+}
