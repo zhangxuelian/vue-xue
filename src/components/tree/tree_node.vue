@@ -13,12 +13,13 @@
                     v-if="$treeRoot.treeConf.checkbox"
                     v-model="item.checked"
                     :mixed="item.mixed"
-                    @click.native="clickCheckbox(item)"
+                    @change="clickCheckbox(item)"
                     class="checkbox-box"
                 ></x-checkbox>
                 <span class="node-icon" v-if="$treeRoot.treeConf.showIcon">
                     <i v-if="item.iconClass" :class="{[item.iconClass]:true}"></i>
-                    <i v-if="!item.iconClass&&$treeRoot.treeConf.iconClass" :class="{ [$treeRoot.treeConf.iconClass]:true }"></i>
+                    <i v-if="!item.iconClass && $treeRoot.treeConf.icon.commonIconClass" :class="{[$treeRoot.treeConf.icon.commonIconClass]:true}"></i>
+                    <i v-if="!item.iconClass && !$treeRoot.treeConf.icon.commonIconClass" :class="[item[$treeRoot.treeConf.childName]?$treeRoot.treeConf.icon.parentIconClass:$treeRoot.treeConf.icon.leafIconClass]"></i> 
                 </span>
                 <span
                     class="node-name"
