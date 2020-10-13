@@ -88,7 +88,7 @@
                 条
             </div>
         </div>
-        <x-pagination :total="tableConf.total" v-model="tableConf.page" :page-size="tableConf.size" @change="tableConf.turnPage"></x-pagination>
+        <x-pagination class="x-pagination-sm" :total="tableConf.total" v-model="tableConf.page" :page-size="tableConf.size" @change="tableConf.turnPage"></x-pagination>
     </div>
 </div>
 </template>

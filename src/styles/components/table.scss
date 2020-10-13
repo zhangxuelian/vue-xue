@@ -146,7 +146,7 @@ $color-text-regular: #333;
                     background: $table-header-bg-color;
                     color: #68778c;
                     border-bottom: 1px solid $table-border-color;
-                    // @include text-overflow-ellipsis();
+                    @include text-overflow-ellipsis();
                     word-break: keep-all;
 
                     &.table-checkbox {
@@ -160,7 +160,7 @@ $color-text-regular: #333;
                     text-align: center;
                     font-size: 13px;
                     min-width: 40px;
-                    // @include text-overflow-ellipsis();
+                    @include text-overflow-ellipsis();
                     word-break: keep-all;
                     padding: 0 5px;
                     color: $color-text-regular;

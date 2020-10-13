@@ -16,7 +16,8 @@ export default {
             treeConfig: {
                 search: true,
                 expendIconPosition: "left",
-                checkNodes: [],
+                expendAll:false,
+                    expandOnClick:false,
                 data: [
                     {
                         name: "test",
@@ -25,6 +26,15 @@ export default {
                             {
                                 name: "child1-1",
                                 id: 11,
+                                children:[{
+                                    name: "child1-1-1",
+                                     isOpen:true,
+                                     checked:true,
+                                    id: 111,
+                                },{
+                                    name: "child1-1-2",
+                                    id: 112,
+                                }]
                             },
                             {
                                 name: "child1-2",
@@ -36,20 +46,32 @@ export default {
                         name: "test2",
                         id: 2,
                     },
+                    {
+                        name: "test3",
+                        id: 3,
+                    },
                 ],
                 checkbox: true,
                 clickNode: (item) => {
                     console.log(item);
                 },
+                getCheckNodes:(checkNodes)=>{
+                    console.log(checkNodes)
+                }
             },
             treeConfig2: {
                 showIcon: true,
-                expendIconPosition: "right",
+                expendIconPosition: "left",
+                expandOnClick:false,
+                icon:{
+                    parentIconClass:'xue-icon xue-icon-ios-compass',
+                    leafIconClass:'xue-icon xue-icon-ios-home-outline'
+                },
                 data: [
                     {
                         name: "菜单1",
                         id: 1,
-                        iconClass: "xue-icon xue-icon-ios-home-outline",
+                        // iconClass: "xue-icon xue-icon-ios-home-outline",
                         children: [
                             {
                                 name: "child1",
@@ -60,25 +82,39 @@ export default {
                     {
                         name: "菜单2",
                         id: 2,
-                        iconClass: "xue-icon xue-icon-ios-home-outline",
+                         children: [
+                            {
+                                name: "child21",
+                                id: 21,
+                            },
+                            {
+                                name: "child22",
+                                id: 22
+                            },
+                        ],
+                        
                     },
                     {
                         name: "菜单3",
-                        id: 2,
-                        iconClass: "xue-icon xue-icon-ios-home-outline",
+                        id: 3,
                     },
                     {
                         name: "菜单4",
-                        id: 2,
-                        iconClass: "xue-icon xue-icon-ios-home-outline",
+                        id: 4,
                     },
                 ],
                 clickNode: (item) => {
                     console.log(item);
                 },
+                getCheckNodes:(checkNodes)=>{
+                    console.log(checkNodes)
+                }
             },
         };
     },
+    methods:{
+        
+    }
 };
 </script>
 <style lang="scss">
