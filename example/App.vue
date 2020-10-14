@@ -12,14 +12,6 @@
         </div>
         <div class="example-body">
             <router-view></router-view>
-            <!-- <div class="nav-list">
-        <ul>
-          <li v-for="item in menuList" :key="item" @click="linkRoute(item)">{{item}}</li>
-        </ul>
-      </div>
-      <div class="module-wrap">
-        <router-view></router-view>
-      </div> -->
         </div>
     </div>
 </template>
@@ -53,7 +45,8 @@ export default {
 </script>
 <style lang="scss">
 @import "./src/assets/css/common.scss";
- .demo-wrap table {
+section {
+    table {
         border-collapse: collapse;
         width: 100%;
         background-color: #fff;
@@ -70,6 +63,20 @@ export default {
             background: #fafafa;
         }
     }
+    pre {
+        background: #333;
+        border-radius: 3px;
+        padding: 10px;
+        color: #eee;
+        line-height: 1.2;
+    }
+    p {
+        line-height: 2;
+    }
+    .header-anchor{
+        display:none;
+    }
+}
 </style>
 
 <style lang="scss" scoped>
@@ -104,32 +111,7 @@ export default {
         }
     }
     .example-body {
-      padding:15px;
-        // flex-grow: 1;
-        // display: flex;
-        // padding: 0 10%;
-        // .nav-list {
-        //   width: 250px;
-        //   height: 100%;
-        //   border: solid 1px #eee;
-        //   box-sizing: border-box;
-        //   ul {
-        //     padding: 0;
-        //     list-style-type: none;
-        //     margin: 0;
-        //     li {
-        //       line-height: 40px;
-        //       padding: 0 10px;
-        //       cursor: pointer;
-        //     }
-        //   }
-        // }
-        // .module-wrap {
-        //   flex-grow: 1;
-        //   box-sizing: border-box;
-        //   padding: 10px;
-        // }
-      
+        padding: 15px;
     }
 }
 </style>

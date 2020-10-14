@@ -61,15 +61,32 @@ let demoConfig = {
             }, {
                 test: /\.md$/,
                 use: [{
-                        loader: 'vue-loader'
-                    },
-                    {
-                        loader: 'vue-markdown-loader/lib/markdown-compiler',
+                        loader: 'vue-loader',
                         options: {
-                            raw: true
+                          compilerOptions: {
+                            preserveWhitespace: false
+                          }
                         }
-                    }
-                ]
+                      },
+                      {
+                        loader: path.resolve(__dirname, './md-loader/index.js')
+                      }
+                  ]
+                // use: [{
+                //         loader: 'vue-loader',
+                //         options: {
+                //             compilerOptions: {
+                //               preserveWhitespace: false
+                //             }
+                //           }
+                //     },
+                //     {
+                //         loader: 'vue-markdown-loader/lib/markdown-compiler',
+                //         options: {
+                //             raw: true
+                //         }
+                //     }
+                // ]
             }
         ]
     },

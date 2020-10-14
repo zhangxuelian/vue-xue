@@ -25,9 +25,11 @@ export default {
     },
     methods: {
         linkRoute(item) {
-            this.$router.push({
-                path:'/component/'+ item
-            });
+            if (item != this.$route.name) {
+                this.$router.push({
+                    path: "/component/" + item,
+                });
+            }
         },
     },
 };
@@ -50,7 +52,7 @@ export default {
                 line-height: 40px;
                 padding: 0 10px;
                 cursor: pointer;
-                &:hover{
+                &:hover {
                     background: #cee0f0;
                 }
             }

@@ -6,7 +6,7 @@ theModules.forEach(item => {
         componentChild.push({
         path:  item,
         name: item,
-        component: (resolve) => require(['@/modules/' + item], resolve)
+        component: (resolve) => require(['@/modules/' + item+"/"+ item + '.md'], resolve)
     })
 });
 const uiModules= uiDirectory||[];
@@ -28,11 +28,13 @@ const routes=[{
 },{
     path:'/component',
     name:'component',
+    redirect: componentChild[0],
     component: (resolve) => require(['@/component'], resolve),
     children: componentChild
 },{
     path:'/ui',
     name:'ui',
+    redirect: uiChild[0],
     component:(resolve) => require(['@/ui'], resolve),
     children:uiChild
 },{
