@@ -80,7 +80,8 @@ export default {
             },
             treeNodeMap: {},
             checkNodes: [], // 选中的节点数组
-            searchText: ''
+            searchText: '',
+            currentSelectedNode: '' // 当前选中节点
         };
     },
     mounted() {
@@ -220,6 +221,8 @@ export default {
             if(this.treeConf.expandOnClick){
                 this.expend(node)
             }
+            this.currentSelectedNode = node[this.treeConf.uniqueId];
+
             if (normalUtil.isFunction(this.treeConf.clickNode)) {
                 this.treeConf.clickNode(node);
             }

@@ -25,6 +25,7 @@
                     class="node-name"
                     @click="clickNode(item)"
                     :title="item[$treeRoot.treeConf.nodeName]"
+                    :class="{'active':$treeRoot.currentSelectedNode==item[$treeRoot.treeConf.uniqueId]}"
                 >{{item[$treeRoot.treeConf.nodeName]}}</span>
             </div>
             <tree-node
