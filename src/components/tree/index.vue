@@ -36,7 +36,7 @@
 <script>
 import treeNode from "./tree_node";
 import xCheckbox from "../checkbox";
-import normalUtil from "@/util/data_util";
+import normalUtil from "../../util/data_util";
 export default {
     name: 'x-tree',
     props: ["treeConfig"],

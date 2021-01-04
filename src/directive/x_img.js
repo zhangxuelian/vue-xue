@@ -1,4 +1,4 @@
-import dom from '@/util/dom_util';
+import dom from '../util/dom_util';
 export default {
     inserted: async function (el, binding) {
         let imgURL = binding.value.src;

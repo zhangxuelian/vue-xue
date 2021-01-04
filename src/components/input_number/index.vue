@@ -26,7 +26,7 @@
     </div>
 </template>
 <script>
-import normalUtil from "@/util/data_util";
+import normalUtil from "../../util/data_util";
 export default {
     name: 'x-input-number',
     props: {

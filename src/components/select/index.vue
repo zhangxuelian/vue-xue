@@ -58,8 +58,8 @@
     </div>
 </template>
 <script>
-import dom from "@/util/dom_util";
-import normalUtil from "@/util/data_util";
+import dom from "../../util/dom_util";
+import normalUtil from "../../util/data_util";
 import xCheckbox from "../checkbox";
 export default {
     name: "x-select",
